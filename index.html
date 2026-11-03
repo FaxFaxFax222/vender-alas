@@ -1,0 +1,1018 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Vender alas · Informe Red Bull</title>
+<meta name="description" content="Resumen interactivo del informe de branding sobre Red Bull. Trabajo académico UADE · FACE · TPO 2026; no es un sitio oficial de la marca.">
+<meta name="theme-color" content="#090807">
+<link rel="preconnect" href="https://d2ol7oe51mr4n9.cloudfront.net">
+<link rel="preload" href="assets/logo/sol.svg" as="image">
+<link rel="preload" href="assets/logo/toros.svg" as="image">
+<style>
+@font-face{font-family:'SF Pro';src:local('SF Pro Text'),local('SF Pro Display'),local('SF Pro'),local('SFProText-Regular'),local('SFProDisplay-Regular');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:'SF Pro';src:local('SF Pro Text Bold'),local('SF Pro Display Bold'),local('SFProText-Bold'),local('SFProDisplay-Bold');font-weight:700;font-style:normal;font-display:swap}
+@font-face{font-family:'SF Pro Thin';src:local('SF Pro Display Thin'),local('SF Pro Thin'),local('SFProDisplay-Thin');font-weight:100;font-style:normal;font-display:swap}
+@font-face{font-family:'Aalto';src:local('Aalto'),local('Aalto Regular'),local('Aalto-Regular');font-weight:400;font-style:normal;font-display:swap}
+
+:root{font-family:'SF Pro',Arial,sans-serif;color:#fff;background:#090807;font-synthesis:none;--title-shift:-32px}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{background:#090807;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+button{font:inherit;color:inherit}
+
+/* Stage */
+.experience{position:relative;width:100%;height:100%;min-height:540px;overflow:hidden;background:#0a0908}
+.backgrounds,.background,.shade,.transition-layer,.transition-layer video{position:absolute;inset:0;width:100%;height:100%}
+.background{object-fit:cover;opacity:0;transition:opacity .8s ease}
+.background.is-visible{opacity:1}
+/* Top band keeps the nav legible over bright footage (desert sky); must match drawShade(). */
+.shade{z-index:1;background:linear-gradient(to bottom,rgba(0,0,0,.42) 0,transparent 20%,transparent 52%,rgba(0,0,0,.88) 100%);pointer-events:none}
+.chrome{position:absolute;z-index:4;transition:opacity .45s ease,filter .45s ease}
+.experience.is-transitioning .chrome{opacity:0;filter:blur(8px);pointer-events:none}
+
+/* Header */
+.header{left:clamp(18px,1.95vw,28px);right:clamp(18px,1.95vw,28px);top:clamp(18px,3.1vh,28px);display:flex;justify-content:space-between;align-items:center}
+.header-actions{margin-left:auto;display:flex;align-items:center;gap:8px}
+.nav{display:flex;align-items:center;height:42px;padding:4px 5px;border:1px solid rgba(255,255,255,.45);background:rgba(16,16,16,.24);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border-radius:999px}
+.nav a{color:#fff;text-decoration:none;padding:8px 19px;border-radius:999px;line-height:1;transition:background-color .25s ease}
+.nav a:not(.active):hover{background:rgba(255,255,255,.14)}
+.nav a.active{background:#fff;color:#000}
+.menu{height:42px;padding:0 20px;border:0;border-radius:999px;background:#fff;color:#000;cursor:pointer}
+:focus-visible{outline:2px solid #fff;outline-offset:3px}
+
+/* Sidebar */
+.planet-list{left:clamp(18px,1.95vw,28px);top:50%;transform:translateY(-43%);display:flex;flex-direction:column;gap:6px;font-size:16px;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.planet-item{display:flex;align-items:center;min-height:20px}
+.planet-item.active{font-size:18px;font-weight:700;gap:8px}
+.planet-item.active:before{content:'';width:16px;height:16px;border-radius:50%;background:#fff}
+button.planet-item{padding:0;border:0;background:none;text-align:left;font:inherit;font-weight:inherit;color:#fff;text-shadow:inherit;transition:opacity .2s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+.planet-list:hover button.planet-item:not(:hover):not(.active){opacity:.55}
+button.planet-item:not(.active):hover{transform:translateX(4px)}
+
+/* Chapter index (Menú) */
+.index-overlay{position:absolute;inset:0;z-index:8;display:flex;align-items:center;justify-content:center;padding:96px clamp(18px,4vw,58px) 40px;background:rgba(5,5,5,.58);-webkit-backdrop-filter:blur(22px);backdrop-filter:blur(22px);animation:index-in .4s ease both}
+.index-overlay[hidden]{display:none}
+.experience.index-open .header,.experience.index-open .floating-logo{z-index:9}
+.index-list{width:min(1120px,100%);margin:0;padding:0;list-style:none}
+.index-row{display:grid;grid-template-columns:64px minmax(150px,240px) 170px 1fr;align-items:baseline;gap:18px;width:100%;padding:10px 0 9px;border:0;border-bottom:1px solid rgba(255,255,255,.28);background:none;color:#fff;font:inherit;text-align:left;transition:opacity .2s ease;animation:fact-rise .6s cubic-bezier(.22,1,.36,1) calc(.06s + var(--i) * .045s) backwards}
+.index-row:focus-visible{outline:none}
+.index-list li:last-child .index-row{border-bottom:0}
+.index-num{display:flex;align-items:center;gap:8px;font-size:14px;opacity:.7;font-variant-numeric:tabular-nums}
+.index-row.is-current .index-num{opacity:1}
+.index-row.is-current .index-num:before{content:'';flex-shrink:0;width:10px;height:10px;border-radius:50%;background:#fff}
+.index-title{font-family:Aalto,'Arial Narrow','Liberation Sans Narrow','Roboto Condensed','sans-serif-condensed',sans-serif;font-stretch:condensed;font-size:clamp(38px,4.6vw,64px);line-height:.9;transition:transform .35s cubic-bezier(.22,1,.36,1)}
+.index-label{font-weight:700;font-size:16px}
+.index-thesis{font-size:15px;line-height:1.35;opacity:.8}
+.index-list:hover .index-row:not(:hover),.index-list:not(:hover):focus-within .index-row:not(:focus){opacity:.45}
+.index-row:hover .index-title,.index-list:not(:hover) .index-row:focus .index-title{transform:translateX(10px)}
+@keyframes index-in{from{opacity:0}to{opacity:1}}
+
+/* Portal */
+.portal-wrap{left:50%;top:50%;width:min(320px,31vw);transform:translate(-50%,-54%);perspective:none}
+.portal-heading{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:16px;opacity:0;text-shadow:0 1px 10px rgba(0,0,0,.5)}
+.portal-heading strong{font-size:18px;margin-left:8px}
+.portal{position:relative;display:block;width:100%;aspect-ratio:320/350;padding:0;overflow:visible;border:0;border-radius:90px;background:transparent;cursor:pointer;box-shadow:none;transform:none!important}
+.portal:focus-visible{outline-offset:6px}
+.portal video,.portal img{visibility:hidden;position:absolute;width:1px;height:1px;pointer-events:none}
+.portal-canvas{position:fixed;inset:0;z-index:3;width:100%;height:100%;pointer-events:none}
+
+/* Planet content */
+.planet-content{left:clamp(28px,4vw,58px);right:clamp(28px,3vw,44px);bottom:clamp(24px,3vh,30px);display:flex;justify-content:space-between;align-items:flex-end;gap:40px}
+.planet-content h1{font-family:Aalto,'Arial Narrow','Liberation Sans Narrow','Roboto Condensed','sans-serif-condensed',sans-serif;font-stretch:condensed;font-size:clamp(128px,21.8vw,314px);font-weight:400;line-height:.72;margin:0 0 -.04em;letter-spacing:0;white-space:nowrap;transform:translateX(var(--title-shift));opacity:0}
+.planet-content dl{flex-shrink:0;width:min(447px,34vw);margin:0;font-size:16px}
+.fact{display:grid;grid-template-columns:138px 1fr;gap:18px;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.48);opacity:0}
+.fact:last-child{border-bottom:0}
+.fact dt{font-weight:700}
+.fact dd{margin:0}
+
+/* Misc */
+.transition-layer{display:none}
+.scene-canvas{display:none}
+.loading{position:absolute;z-index:12;left:50%;bottom:30px;transform:translateX(-50%);opacity:0;font-size:12px;letter-spacing:.14em;text-transform:uppercase;white-space:nowrap;pointer-events:none;transition:opacity .2s}
+.experience.is-loading .loading{opacity:.8}
+.experience.is-transitioning .header,.experience.is-transitioning .planet-list{opacity:1;filter:none;pointer-events:auto}
+.experience.is-transitioning .shade{opacity:1}
+.experience.is-committing .background{transition:none!important}
+
+/* Preloader */
+.preloader{position:absolute;inset:0;z-index:20;background:#000;overflow:hidden}
+.preloader video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.preloader-shade{position:absolute;inset:auto 0 0;height:35%;background:linear-gradient(to bottom,transparent,#000)}
+.preloader.is-background{z-index:0}
+.preloader.is-background .preloader-shade{opacity:0}
+/* Isotipo 47:18.2. Docked height 29px, vertically centered on the 42px nav. */
+.floating-logo{position:fixed;z-index:22;left:50%;top:50%;width:160px;height:62px;transform:translate(-50%,-50%);will-change:left,top,width,height,transform;transition:left 2s cubic-bezier(.16,1,.3,1),top 2s cubic-bezier(.16,1,.3,1),width 2s cubic-bezier(.16,1,.3,1),height 2s cubic-bezier(.16,1,.3,1),transform 2s cubic-bezier(.16,1,.3,1)}
+.floating-logo.is-docked{left:clamp(18px,1.95vw,28px);top:calc(clamp(18px,3.1vh,28px) + 6.5px);width:75px;height:29px;transform:none}
+.floating-logo.is-settled{z-index:5}
+.logo-mark,.logo-mark img{position:absolute;inset:0;width:100%;height:100%;display:block}
+.logo-bull--left{clip-path:inset(0 50% 0 0)}
+.logo-bull--right{clip-path:inset(0 0 0 50%)}
+/* Entrance: the sun rises, the bulls charge in from the sides and meet in front of it, impact pulse + shockwave.
+   Only translate, uniform scale and opacity: the mark is never deformed or recolored. */
+.logo-mark{animation:logo-impact .55s cubic-bezier(.22,1,.36,1) 1.2s both}
+.logo-mark::before{content:'';position:absolute;left:50%;top:50%;width:40%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(255,204,0,.6) 0,rgba(255,204,0,0) 70%);transform:translate(-50%,-50%) scale(.6);opacity:0;animation:logo-wave 1s cubic-bezier(.22,1,.36,1) 1.18s both;pointer-events:none}
+.logo-sun{animation:logo-sun .8s cubic-bezier(.16,1,.3,1) .15s both}
+.logo-bull--left{animation:logo-charge-left .8s cubic-bezier(.6,0,.25,1) .42s both}
+.logo-bull--right{animation:logo-charge-right .8s cubic-bezier(.6,0,.25,1) .42s both}
+@keyframes logo-sun{from{opacity:0;transform:scale(.3)}to{opacity:1;transform:scale(1)}}
+@keyframes logo-charge-left{from{opacity:0;transform:translateX(-60%);filter:blur(6px)}45%{opacity:1}to{opacity:1;transform:translateX(0);filter:blur(0)}}
+@keyframes logo-charge-right{from{opacity:0;transform:translateX(60%);filter:blur(6px)}45%{opacity:1}to{opacity:1;transform:translateX(0);filter:blur(0)}}
+@keyframes logo-impact{0%{transform:scale(1)}30%{transform:scale(1.08)}100%{transform:scale(1)}}
+@keyframes logo-wave{0%{opacity:0;transform:translate(-50%,-50%) scale(.6)}25%{opacity:1}100%{opacity:0;transform:translate(-50%,-50%) scale(2.6)}}
+/* Authors, next to the docked logo. */
+.disclaimer{margin:0 0 0 calc(75px + 14px);max-width:300px;font-size:11px;line-height:1.3;letter-spacing:.02em;opacity:.72}
+.preloader-count{position:fixed;z-index:22;left:50%;bottom:clamp(22px,3.1vh,28px);display:flex;align-items:flex-end;gap:4px;transform:translateX(-50%);font-family:'SF Pro',Arial,sans-serif;line-height:1;font-variant-numeric:tabular-nums}
+.preloader-count>span:first-child{font-family:'SF Pro Thin','SF Pro',Arial,sans-serif;font-size:64px;font-weight:100}
+.preloader-count .percent{font-size:24px;padding-bottom:4px}
+.preloader-count.is-leaving{animation:preload-count-out .75s cubic-bezier(.22,1,.36,1) both}
+@keyframes preload-count-out{to{opacity:0;filter:blur(7px);transform:translate(-50%,-34px)}}
+body:not(.preload-complete) .custom-cursor{opacity:0!important}
+
+/* Cursor */
+html,body,button,a,.portal{cursor:none!important}
+.custom-cursor{display:block;position:fixed;left:0;top:0;z-index:100;width:1px;height:1px;pointer-events:none;opacity:0;transition:opacity .2s ease}
+.custom-cursor.is-visible{opacity:1}
+.cursor-dot,.cursor-orbit{position:absolute;left:0;top:0;border-radius:50%;transform:translate(-50%,-50%)}
+.cursor-dot{width:12px;height:12px;background:#fff}
+.cursor-orbit{width:36px;height:36px;border:1px solid #fff;background:rgba(255,255,255,.4);transition:transform .3s cubic-bezier(.22,1,.36,1)}
+.custom-cursor.is-enter .cursor-orbit{transform:translate(-50%,-50%) scale(1.16)}
+.cursor-label{position:absolute;top:26px;left:0;transform:translateX(-50%) translateY(-4px);font:16px/1.2 'SF Pro',Arial,sans-serif;white-space:nowrap;opacity:0;transition:opacity .2s ease,transform .3s cubic-bezier(.22,1,.36,1)}
+.custom-cursor.is-enter .cursor-label{opacity:1;transform:translateX(-50%) translateY(0)}
+
+/* Entrance / switch animations */
+body:not(.intro-ready) .header,.planet-list,.planet-content h1,.planet-content .fact{opacity:0}
+.intro-ready .header{animation:reveal-down .9s cubic-bezier(.22,1,.36,1) .1s both}
+.intro-ready .planet-list{animation:reveal-side .9s cubic-bezier(.22,1,.36,1) .65s both}
+.content-revealing h1{animation:title-rise 1.05s cubic-bezier(.16,1,.3,1) both}
+.content-revealing .fact{animation:fact-rise .72s cubic-bezier(.22,1,.36,1) both}
+.content-revealing .fact:nth-child(1){animation-delay:.52s}
+.content-revealing .fact:nth-child(2){animation-delay:.68s}
+.content-revealing .fact:nth-child(3){animation-delay:.84s}
+.content-revealing .fact:nth-child(4){animation-delay:1s}
+.mask-revealing .portal-heading{animation:portal-caption .85s cubic-bezier(.22,1,.36,1) both}
+.planet-list.is-switching .planet-item{animation:menu-row .58s cubic-bezier(.22,1,.36,1) both}
+.planet-list.is-switching .planet-item:nth-child(1){animation-delay:.02s}
+.planet-list.is-switching .planet-item:nth-child(2){animation-delay:.05s}
+.planet-list.is-switching .planet-item:nth-child(3){animation-delay:.08s}
+.planet-list.is-switching .planet-item:nth-child(4){animation-delay:.11s}
+.planet-list.is-switching .planet-item:nth-child(5){animation-delay:.14s}
+.planet-list.is-switching .planet-item:nth-child(6){animation-delay:.17s}
+.planet-list.is-switching .planet-item:nth-child(7){animation-delay:.2s}
+.planet-list.is-switching .planet-item:nth-child(8){animation-delay:.23s}
+.planet-list.is-switching .planet-item.active:before{animation:active-dot .55s cubic-bezier(.22,1,.36,1) .18s both}
+
+@keyframes reveal-down{from{opacity:0;filter:blur(8px);transform:translateY(-18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes reveal-side{from{opacity:0;filter:blur(8px);transform:translate(-20px,-43%)}to{opacity:1;filter:blur(0);transform:translate(0,-43%)}}
+@keyframes title-rise{from{opacity:0;filter:blur(12px);transform:translate(var(--title-shift),42px)}to{opacity:1;filter:blur(0);transform:translate(var(--title-shift),0)}}
+@keyframes fact-rise{from{opacity:0;filter:blur(7px);transform:translateY(18px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes portal-caption{from{opacity:0;filter:blur(7px);transform:translateY(22px)}to{opacity:1;filter:blur(0);transform:translateY(0)}}
+@keyframes menu-row{from{opacity:.35;transform:translateX(-8px)}to{opacity:1;transform:translateX(0)}}
+@keyframes active-dot{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+
+/* Responsive */
+@media(max-width:900px){
+  :root{--title-shift:calc(clamp(18px,1.95vw,28px) - clamp(28px,4vw,58px))}
+  .nav{display:none}
+  .portal-wrap{width:min(300px,48vw)}
+  .planet-content h1{font-size:clamp(105px,24vw,190px)}
+  .planet-content dl{width:43vw}
+  .fact{grid-template-columns:110px 1fr}
+  .planet-list{font-size:14px}
+  .planet-item.active{font-size:16px}
+}
+@media(max-width:640px){
+  :root{--title-shift:-.05em}
+  .experience{min-height:600px}
+  .planet-list{display:none}
+  .portal-wrap{top:44%;width:min(260px,66vw)}
+  .planet-content{left:18px;right:18px;bottom:18px;display:block}
+  .planet-content h1{font-size:clamp(98px,30vw,160px);margin-bottom:20px}
+  .planet-content dl{width:100%;font-size:13px}
+  .fact{grid-template-columns:92px 1fr;padding:5px 0}
+  .portal-heading{font-size:14px}
+  .portal-heading strong{font-size:16px}
+  .menu{height:38px}
+  .portal{border-radius:70px}
+}
+@media(max-width:640px) and (max-height:720px){
+  .portal-wrap{top:38%;width:min(210px,56vw)}
+}
+@media(max-width:900px){
+  .index-row{grid-template-columns:48px minmax(120px,190px) 1fr;row-gap:2px}
+  .index-label{grid-column:3}
+  .index-thesis{grid-column:3}
+}
+@media(max-width:640px){
+  .disclaimer{max-width:140px;font-size:10px}
+  .index-overlay{align-items:flex-start;padding-top:88px;overflow-y:auto}
+  .index-row{grid-template-columns:40px 1fr auto;gap:10px;padding:8px 0}
+  .index-title{font-size:40px}
+  .index-label{grid-column:3;font-size:13px;font-weight:400;opacity:.75}
+  .index-thesis{display:none}
+}
+@media(prefers-reduced-motion:reduce){
+  *{transition-duration:.01ms!important}
+  .portal{transform:none!important}
+  .logo-mark,.logo-mark img,.logo-mark::before{animation:none!important}
+}
+</style>
+</head>
+<body>
+<main class="experience" data-chapter="portada">
+  <div class="backgrounds" aria-hidden="true"></div>
+
+  <div class="preloader" id="preloader" aria-label="Cargando el informe">
+    <video id="preloader-video" src="assets/video/00-portada.mp4" muted playsinline preload="auto"></video>
+    <div class="preloader-shade"></div>
+  </div>
+  <!-- Logo: vectores originales extraídos del PDF del TP. Capas sin modificar: sol + toros (cada mitad recortada al centro). -->
+  <div class="floating-logo" id="floating-logo" role="img" aria-label="Red Bull">
+    <span class="logo-mark">
+      <img class="logo-sun" src="assets/logo/sol.svg" alt="">
+      <img class="logo-bull logo-bull--left" src="assets/logo/toros.svg" alt="">
+      <img class="logo-bull logo-bull--right" src="assets/logo/toros.svg" alt="">
+    </span>
+  </div>
+  <div class="preloader-count" id="preloader-count" aria-live="polite">
+    <span id="preloader-value">0</span><span class="percent">%</span>
+  </div>
+
+  <canvas id="scene-canvas" class="scene-canvas" aria-hidden="true"></canvas>
+  <div class="shade" aria-hidden="true"></div>
+
+  <header class="header chrome">
+    <p class="disclaimer">Arrambide Félix · Trentín Matías</p>
+    <div class="header-actions">
+      <nav class="nav" aria-label="Navegación principal">
+        <a class="active" href="#inicio" data-go="0" aria-current="page">Inicio</a><a href="#tesis" data-go="7">Tesis</a>
+      </nav>
+      <button class="menu" type="button" aria-expanded="false" aria-controls="index-overlay">Menú</button>
+    </div>
+  </header>
+
+  <aside class="planet-list chrome" aria-label="Capítulos"></aside>
+
+  <canvas id="portal-canvas" class="portal-canvas" aria-hidden="true"></canvas>
+  <section class="portal-wrap chrome" aria-label="Próximo capítulo">
+    <div class="portal-heading">
+      <span>Siguiente:</span>
+      <span><span id="next-number">[01]</span> <strong id="next-name">Categoría</strong></span>
+    </div>
+    <button class="portal" id="portal" type="button" aria-label="Ir a Categoría">
+      <video id="portal-video" muted playsinline preload="auto"></video>
+    </button>
+  </section>
+
+  <section class="planet-content chrome" aria-live="polite">
+    <h1 id="planet-title">ALAS</h1>
+    <dl id="facts"></dl>
+  </section>
+
+  <div class="index-overlay" id="index-overlay" role="dialog" aria-modal="true" aria-label="Capítulos" hidden>
+    <ol class="index-list" id="index-list"></ol>
+  </div>
+
+  <div class="transition-layer" aria-hidden="true"><video id="transition-video" muted playsinline preload="auto"></video></div>
+  <div class="loading" aria-hidden="true">Abriendo capítulo…</div>
+  <div class="custom-cursor" aria-hidden="true">
+    <span class="cursor-orbit"></span><span class="cursor-dot"></span><span class="cursor-label">Entrar</span>
+  </div>
+</main>
+
+<script>
+(() => {
+  'use strict';
+
+  /* ---------- Assets ---------- */
+
+  // Un clip por capítulo. Frame 0: vista previa dentro del portal (solo se ve el centro).
+  // Reproducido completo: transición de entrada; su último frame queda congelado como fondo del capítulo.
+  // La portada es además el preloader: su último frame es el fondo inicial.
+  const V = 'assets/video';
+  // Placeholder del diseño original hasta tener el clip de la conclusión.
+  const PH_CONCLUSION = 'https://d2ol7oe51mr4n9.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/fc3ded42-e845-41f3-a830-5cab512d79cd.mp4';
+
+  const VIDEO = {
+    portada: `${V}/00-portada.mp4`,
+    categoria: `${V}/01-categoria.mp4`,
+    identidad: `${V}/02-identidad.mp4`,
+    propuesta: `${V}/03-propuesta.mp4`,
+    mix: `${V}/04-mix.mp4`,
+    capital: `${V}/05-capital.mp4`,
+    visual: `${V}/06-visual.mp4`,
+    conclusion: PH_CONCLUSION
+  };
+
+
+  /* ---------- Contenido ---------- */
+
+  // label: índice del informe (sidebar y portal). title: palabra del h1.
+  const chapters = [
+    {
+      key: 'portada', number: '[00]', label: 'Portada', title: 'ALAS',
+      facts: [
+        ['Informe:', 'Branding de Red Bull en Argentina y en el mundo.'],
+        ['Escala:', '13.969 M de latas y €12.196 M facturados en 2025, en 178 países.'],
+        ['Cátedra:', 'Construcción y Gestión de Marca · Prof. Dis. Ángeles Diaz Saubidet.'],
+        ['Equipo:', 'Félix Santiago Arrambide y Matías Trentín · UADE · TPO 2026.']
+      ]
+    },
+    {
+      key: 'categoria', number: '[01]', label: 'Categoría', title: 'RUBRO',
+      facts: [
+        ['Tesis:', 'Oligopolio diferenciado: la fórmula se copia; frío, marca y escala, no.'],
+        ['Tamaño:', 'US$85,3 mil M global, +8% anual. En Argentina, tres marcas suman ≈90%.'],
+        ['Precio:', 'Por litro, 1,7× Monster; por lata, 9,7% más barata. Se comparan latas.'],
+        ['Regulación:', 'Su fórmula está justo en el tope legal argentino de cafeína y taurina.']
+      ]
+    },
+    {
+      key: 'identidad', number: '[02]', label: 'Identidad', title: 'MARCA',
+      facts: [
+        ['Tesis:', 'Naming, signo y claim, una sola promesa: la energía convertida en proeza.'],
+        ['Claim:', '“Te da alas”: 39 años vigente; sobrevivió a un juicio de US$13 M.'],
+        ['Arquitectura:', 'Branded house: bebidas, equipos, eventos y medios firman con un solo nombre.'],
+        ['Personalidad:', 'Explorador, Héroe y Bufón: épica en el deporte, humor en la publicidad.']
+      ]
+    },
+    {
+      key: 'propuesta', number: '[03]', label: 'Propuesta', title: 'VALOR',
+      facts: [
+        ['Tesis:', 'Cobra por significado: vende pertenencia a una cultura de proeza propia.'],
+        ['Precio:', '$13.720 por litro, el más alto de las líderes, sin promociones agresivas.'],
+        ['Posición:', '3.ª en volumen en Argentina; 1.ª en EE.UU., con 35,9% de participación.'],
+        ['Vacío:', 'Nadie ocupa el cuadrante premium funcional (energía wellness) en Argentina.']
+      ]
+    },
+    {
+      key: 'mix', number: '[04]', label: 'Mix', title: 'MIX',
+      facts: [
+        ['Tesis:', 'La promoción es el producto: una empresa de medios que vende latas.'],
+        ['Producto:', 'Fórmula única en 178 países; innova en sabor y azúcar, nunca en el núcleo.'],
+        ['Plaza:', 'Heladeras exclusivas, Wings Team y eventos propios.'],
+        ['Promoción:', '25–30% de la facturación en marketing; 1.250+ eventos al año.']
+      ]
+    },
+    {
+      key: 'capital', number: '[05]', label: 'Capital de marca', title: 'SALUD',
+      facts: [
+        ['Tesis:', 'Vale más que nunca, pero nadie mide su salud de marca en Argentina.'],
+        ['Valor:', 'US$12.300 M en 2026, +27% (Brand Finance). Monster: US$9.100 M.'],
+        ['Método:', 'Brand Health Tracker: 17 preguntas, del Top of Mind a la lealtad.'],
+        ['Estado:', 'Instrumento diseñado, trabajo de campo pendiente: todavía sin resultados.']
+      ]
+    },
+    {
+      key: 'visual', number: '[06]', label: 'Sistema visual', title: 'SIGNO',
+      facts: [
+        ['Tesis:', 'El signo es el activo más defendible de la marca.'],
+        ['Anatomía:', 'Dos toros, un sol y un logotipo propio, sin cambio estructural en 39 años.'],
+        ['Góndola:', 'Azul y plata: el único bloque claro en una heladera de marcas negras.'],
+        ['Coherencia:', '4,4/5 en diez criterios; el más débil, la evolución (3/5).']
+      ]
+    },
+    {
+      key: 'conclusion', number: '[07]', label: 'Conclusión', title: 'TESIS',
+      facts: [
+        ['Síntesis:', 'Red Bull no vende energía. Vende el permiso para intentarlo.'],
+        ['Ventaja:', 'El premium se sostiene con cultura propia: el ecosistema no se copia.'],
+        ['Amenaza:', 'Regulación a menores, no Monster: el 52,7% de 11 a 15 años ya consume.'],
+        ['Acción:', 'Sumar ocasiones, no bajar precio: llevar Zero y Sugarfree al consumo diurno.']
+      ]
+    }
+  ];
+
+  const LAST = chapters.length - 1;
+  const at = (i) => chapters[i];
+  const nextIndex = (i) => (i + 1) % chapters.length; // the last portal loops back to the cover
+  const nextOf = (i) => chapters[nextIndex(i)];
+  const clip = (chapter) => VIDEO[chapter.key];
+
+  // Seconds (real time) before the transition clip ends when the next portal and the content start revealing,
+  // so the jump never stalls on the clip's last frame.
+  const REVEAL_LEAD = 1.6;
+
+  /* ---------- Elements ---------- */
+
+  const $ = (id) => document.getElementById(id);
+  const experience = document.querySelector('.experience');
+  const backgroundWrap = document.querySelector('.backgrounds');
+  const planetList = document.querySelector('.planet-list');
+  const content = document.querySelector('.planet-content');
+  const title = $('planet-title');
+  const facts = $('facts');
+  const nextName = $('next-name');
+  const nextNumber = $('next-number');
+  const portal = $('portal');
+  const portalVideo = $('portal-video');
+  const portalCanvas = $('portal-canvas');
+  const ctx = portalCanvas.getContext('2d');
+  const sceneCanvas = $('scene-canvas');
+  const sceneCtx = sceneCanvas.getContext('2d');
+  const transitionVideo = $('transition-video');
+  const preloader = $('preloader');
+  const preloaderVideo = $('preloader-video');
+  const preloaderCount = $('preloader-count');
+  const preloaderValue = $('preloader-value');
+  const logo = $('floating-logo');
+  const cursor = document.querySelector('.custom-cursor');
+  const menuButton = document.querySelector('.menu');
+  const navLinks = Array.from(document.querySelectorAll('.nav [data-go]'));
+  const indexOverlay = $('index-overlay');
+  const indexList = $('index-list');
+
+  const backgrounds = chapters.map((chapter, i) => {
+    const video = document.createElement('video');
+    video.className = i === 0 ? 'background is-visible' : 'background';
+    video.muted = true;
+    video.playsInline = true;
+    video.preload = i < 2 ? 'auto' : 'metadata';
+    video.src = clip(chapter);
+    backgroundWrap.append(video);
+    return video;
+  });
+
+  /* ---------- State ---------- */
+
+  let current = 0;
+  let busy = false;
+  let introDone = false;
+  let hasRendered = false;
+  let rotX = 0, rotY = 0, targetX = 0, targetY = 0;
+  let expansion = 0;
+  let maskScale = 0;
+  let canvasOpacity = 1;
+  let transitionActive = false;
+  let bgVideo = null; // transition clip still playing full screen behind the next portal
+  let frozen = false;
+  let indexOpen = false;
+  let portalRadius = 90;
+  let lastFrame = 0;
+
+  /* ---------- Helpers ---------- */
+
+  const ease = (t) => (t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2);
+  const wait = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const nextFrame = () => new Promise((resolve) => requestAnimationFrame(resolve));
+
+  function animateValue(setter, duration) {
+    return new Promise((resolve) => {
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min(1, Math.max(0, (now - start) / duration));
+        setter(ease(t));
+        if (t < 1) requestAnimationFrame(step);
+        else resolve();
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  function retrigger(el, cls) {
+    el.classList.remove(cls);
+    void el.offsetWidth;
+    el.classList.add(cls);
+  }
+
+  function once(target, events, timeout) {
+    return new Promise((resolve) => {
+      let timer = 0;
+      const done = () => {
+        clearTimeout(timer);
+        events.forEach((name) => target.removeEventListener(name, done));
+        resolve();
+      };
+      events.forEach((name) => target.addEventListener(name, done));
+      if (timeout) timer = setTimeout(done, timeout);
+    });
+  }
+
+  // iOS can keep a paused, never-played video at HAVE_METADATA; a muted play/pause decodes frame 0.
+  function primeFrame(video) {
+    if (video.readyState >= 2 || !video.paused) return;
+    const attempt = video.play();
+    if (attempt) attempt.then(() => { video.pause(); video.currentTime = 0; }).catch(() => {});
+  }
+
+  function mediaReady(media, timeout = 8000) {
+    if (media instanceof HTMLVideoElement) {
+      if (media.readyState >= 2) return Promise.resolve();
+      const primer = setTimeout(() => primeFrame(media), 1200);
+      return once(media, ['loadeddata', 'error'], timeout).then(() => clearTimeout(primer));
+    }
+    if (media.complete) return Promise.resolve();
+    return once(media, ['load', 'error'], timeout);
+  }
+
+  function videoEnded(video) {
+    if (video.ended) return Promise.resolve();
+    return new Promise((resolve, reject) => {
+      const remaining = Number.isFinite(video.duration)
+        ? (video.duration - video.currentTime) / (video.playbackRate || 1)
+        : 15;
+      const timer = setTimeout(finish, remaining * 1000 + 6000);
+      function finish() { cleanup(); resolve(); }
+      function fail() { cleanup(); reject(new Error('Transition video failed')); }
+      function cleanup() {
+        clearTimeout(timer);
+        video.removeEventListener('ended', finish);
+        video.removeEventListener('error', fail);
+      }
+      video.addEventListener('ended', finish);
+      video.addEventListener('error', fail);
+    });
+  }
+
+  // Resolves when the clip has `lead` seconds (real time, playback rate applied) left, or has ended.
+  function nearEnd(video, lead) {
+    return new Promise((resolve) => {
+      const safety = setTimeout(resolve, 20000);
+      const check = () => {
+        const { duration, currentTime } = video;
+        const left = Number.isFinite(duration) ? (duration - currentTime) / (video.playbackRate || 1) : 0;
+        if (video.ended || video.error || left <= lead) { clearTimeout(safety); resolve(); return; }
+        requestAnimationFrame(check);
+      };
+      check();
+    });
+  }
+
+  const currentPortalMedia = () => portalVideo;
+
+  /* ---------- Render ---------- */
+
+  function syncPortalMedia() {
+    const src = clip(nextOf(current));
+    if (portalVideo.getAttribute('src') !== src) portalVideo.src = src;
+  }
+
+  function render() {
+    const chapter = at(current);
+    const next = nextOf(current);
+    experience.dataset.chapter = chapter.key;
+    title.textContent = chapter.title;
+    nextName.textContent = next.label;
+    nextNumber.textContent = next.number;
+    portal.setAttribute('aria-label', `Ir a ${next.label}`);
+    navLinks.forEach((link) => {
+      const active = Number(link.dataset.go) === current;
+      link.classList.toggle('active', active);
+      if (active) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+    });
+    indexList.querySelectorAll('.index-row').forEach((row, i) => {
+      row.classList.toggle('is-current', i === current);
+      if (i === current) row.setAttribute('aria-current', 'step'); else row.removeAttribute('aria-current');
+    });
+
+    facts.replaceChildren(...chapter.facts.map(([key, value]) => {
+      const row = document.createElement('div');
+      const dt = document.createElement('dt');
+      const dd = document.createElement('dd');
+      row.className = 'fact';
+      dt.textContent = key;
+      dd.textContent = value;
+      row.append(dt, dd);
+      return row;
+    }));
+
+    planetList.replaceChildren(...chapters.map((item, i) => {
+      const row = document.createElement('button');
+      row.type = 'button';
+      row.className = i === current ? 'planet-item active' : 'planet-item';
+      if (i === current) row.setAttribute('aria-current', 'step');
+      row.textContent = item.label;
+      row.addEventListener('click', () => travel(i));
+      return row;
+    }));
+    if (hasRendered) retrigger(planetList, 'is-switching');
+    hasRendered = true;
+
+    backgrounds.forEach((video, i) => {
+      video.classList.toggle('is-visible', i === current);
+      if (i === current || i === current + 1) video.preload = 'auto';
+    });
+    syncPortalMedia();
+    fitTitle();
+  }
+
+  // One size for every chapter: fits the widest title so the h1 keeps the same scale across the journey.
+  // Also the safety net for fallback faces (Aalto is condensed, Arial/Roboto are not).
+  function fitTitle() {
+    title.style.fontSize = '';
+    const shown = title.textContent;
+    const range = document.createRange();
+    let widest = 0;
+    for (const chapter of chapters) {
+      title.textContent = chapter.title;
+      range.selectNodeContents(title);
+      widest = Math.max(widest, range.getBoundingClientRect().width);
+    }
+    title.textContent = shown;
+    if (!widest) return;
+    const box = content.getBoundingClientRect();
+    const stacked = getComputedStyle(content).display !== 'flex';
+    const gap = stacked ? 0 : parseFloat(getComputedStyle(content).columnGap) || 0;
+    // Measured against the h1's layout box (content left edge), not the translated glyphs.
+    const room = (stacked ? box.right : box.right - facts.offsetWidth - gap) - box.left;
+    if (widest <= room) return;
+    const size = parseFloat(getComputedStyle(title).fontSize);
+    title.style.fontSize = `${Math.floor(size * room / widest)}px`;
+  }
+
+
+  /* ---------- Canvas ---------- */
+
+  function sizeCanvas(canvas, context) {
+    const d = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.round(innerWidth * d);
+    canvas.height = Math.round(innerHeight * d);
+    canvas.style.width = `${innerWidth}px`;
+    canvas.style.height = `${innerHeight}px`;
+    context.setTransform(d, 0, 0, d, 0, 0);
+  }
+
+  function resizeCanvas() {
+    sizeCanvas(portalCanvas, ctx);
+    if (!frozen) sizeCanvas(sceneCanvas, sceneCtx);
+    portalRadius = parseFloat(getComputedStyle(portal).borderTopLeftRadius) || 90;
+    fitTitle();
+  }
+
+  function drawCover(context, media) {
+    if (!media) return;
+    const isVideo = media instanceof HTMLVideoElement;
+    if (isVideo && media.readyState < 2) return;
+    const mw = media.videoWidth || media.naturalWidth || 0;
+    const mh = media.videoHeight || media.naturalHeight || 0;
+    if (!mw || !mh) return;
+    const scale = Math.max(innerWidth / mw, innerHeight / mh);
+    const w = mw * scale;
+    const h = mh * scale;
+    context.drawImage(media, (innerWidth - w) / 2, (innerHeight - h) / 2, w, h);
+  }
+
+  // Mirrors .shade: dark top band (nav) and bottom fade (title + facts).
+  function drawShade(context) {
+    const band = innerHeight * .2;
+    const topGradient = context.createLinearGradient(0, 0, 0, band);
+    topGradient.addColorStop(0, 'rgba(0,0,0,.42)');
+    topGradient.addColorStop(1, 'rgba(0,0,0,0)');
+    context.fillStyle = topGradient;
+    context.fillRect(0, 0, innerWidth, band);
+
+    const top = innerHeight * .52;
+    const gradient = context.createLinearGradient(0, top, 0, innerHeight);
+    gradient.addColorStop(0, 'rgba(0,0,0,0)');
+    gradient.addColorStop(1, 'rgba(0,0,0,.88)');
+    context.fillStyle = gradient;
+    context.fillRect(0, top, innerWidth, innerHeight - top);
+  }
+
+  // Rounded rect sampled as 4 × 11 arc points, rotated about X/Y and projected with focal length 850.
+  function tracePortal(context, cx, cy, w, h, r, rx, ry) {
+    r = Math.max(0, Math.min(r, w / 2, h / 2));
+    const ax = rx * Math.PI / 180;
+    const ay = ry * Math.PI / 180;
+    const cosX = Math.cos(ax), sinX = Math.sin(ax);
+    const cosY = Math.cos(ay), sinY = Math.sin(ay);
+    const corners = [
+      [w / 2 - r, -h / 2 + r, -Math.PI / 2, 0],
+      [w / 2 - r, h / 2 - r, 0, Math.PI / 2],
+      [-w / 2 + r, h / 2 - r, Math.PI / 2, Math.PI],
+      [-w / 2 + r, -h / 2 + r, Math.PI, Math.PI * 1.5]
+    ];
+    context.beginPath();
+    let first = true;
+    for (const [ox, oy, a0, a1] of corners) {
+      for (let i = 0; i <= 10; i++) {
+        const a = a0 + (a1 - a0) * (i / 10);
+        const x = ox + Math.cos(a) * r;
+        const y = oy + Math.sin(a) * r;
+        const z = x * sinY - y * sinX;
+        const p = 850 / (850 + z);
+        const sx = cx + x * cosY * p;
+        const sy = cy + y * cosX * p;
+        if (first) { context.moveTo(sx, sy); first = false; } else context.lineTo(sx, sy);
+      }
+    }
+    context.closePath();
+  }
+
+  function draw(now) {
+    const dt = Math.min(40, lastFrame ? now - lastFrame : 16);
+    lastFrame = now;
+    const k = Math.min(1, Math.max(0, dt) * .009);
+    rotX += (targetX - rotX) * k;
+    rotY += (targetY - rotY) * k;
+
+    const vw = innerWidth;
+    const vh = innerHeight;
+    ctx.clearRect(0, 0, vw, vh);
+    // Background layer: the clip finishing behind the next portal, then its frozen last frame.
+    if (bgVideo) {
+      drawCover(ctx, bgVideo);
+      drawShade(ctx);
+    } else if (frozen) {
+      ctx.drawImage(sceneCanvas, 0, 0, vw, vh);
+      drawShade(ctx);
+    }
+
+    const rect = portal.getBoundingClientRect();
+    const e = expansion;
+    const rcx = rect.left + rect.width / 2;
+    const rcy = rect.top + rect.height / 2;
+    const cx = rcx + (vw / 2 - rcx) * e;
+    const cy = rcy + (vh / 2 - rcy) * e;
+    const baseW = rect.width + (vw - rect.width) * e;
+    const baseH = rect.height + (vh - rect.height) * e;
+    const scale = e ? 1 : maskScale;
+    const w = baseW * scale;
+    const h = baseH * scale;
+    const r = portalRadius * (1 - e) * scale;
+
+    if (w > 1 && h > 1) {
+      ctx.save();
+      ctx.globalAlpha = canvasOpacity;
+      tracePortal(ctx, cx, cy, w, h, r, rotX * (1 - e), rotY * (1 - e));
+      ctx.clip();
+      ctx.fillStyle = '#030303';
+      ctx.fillRect(0, 0, vw, vh);
+      drawCover(ctx, transitionActive ? transitionVideo : currentPortalMedia());
+      if (transitionActive) drawShade(ctx);
+      ctx.restore();
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  function freezeFrame() {
+    sizeCanvas(sceneCanvas, sceneCtx);
+    sceneCtx.clearRect(0, 0, innerWidth, innerHeight);
+    drawCover(sceneCtx, transitionVideo);
+    frozen = true;
+  }
+
+  /* ---------- Reveal sequences ---------- */
+
+  function revealMask() {
+    retrigger(experience, 'mask-revealing');
+    maskScale = 0;
+    return animateValue((v) => { maskScale = v; }, 1050);
+  }
+
+  function revealPlanetContent() {
+    retrigger(experience, 'content-revealing');
+  }
+
+  /* ---------- Travel ---------- */
+
+  // Jumps to any chapter (portal, sidebar, nav, index). The destination's clip is the transition.
+  async function travel(target = nextIndex(current)) {
+    if (busy || !introDone || target === current) return;
+    busy = true;
+    targetX = 0;
+    targetY = 0;
+    cursor.classList.remove('is-enter');
+    const destination = at(target);
+
+    try {
+      // Jumps that skip ahead need the portal to show the destination while it expands.
+      if (portalVideo.getAttribute('src') !== clip(destination)) portalVideo.src = clip(destination);
+      transitionVideo.src = clip(destination);
+      transitionVideo.load();
+      experience.classList.add('is-loading');
+      await (transitionVideo.readyState >= 4
+        ? Promise.resolve()
+        : once(transitionVideo, ['canplaythrough', 'error'], 1600));
+
+      // Content classes stay on so the chrome visibly blurs out; they are cleared once it is hidden.
+      experience.classList.remove('is-loading');
+      experience.classList.add('is-transitioning');
+      transitionVideo.currentTime = 0;
+      transitionVideo.playbackRate = 1.3;
+      canvasOpacity = 1;
+      transitionActive = true;
+      await transitionVideo.play();
+
+      // The portal element is off-screen for the rest of the jump: warm up the next destination now.
+      portalVideo.src = clip(nextOf(target));
+
+      await animateValue((v) => { expansion = v; }, 1100);
+
+      // The clip now fills the screen: hand it to the background layer so the portal is free for the next stop.
+      bgVideo = transitionVideo;
+      transitionActive = false;
+      expansion = 0;
+      maskScale = 0;
+      current = target;
+      experience.classList.remove('content-revealing', 'mask-revealing');
+      experience.classList.add('is-committing');
+      render();
+      await nextFrame();
+      experience.classList.remove('is-committing');
+
+      // Reveal the next portal and the content while the clip is still settling, not after it stops.
+      await nearEnd(transitionVideo, REVEAL_LEAD);
+      experience.classList.remove('is-transitioning');
+      const maskReveal = revealMask();
+      setTimeout(revealPlanetContent, 100);
+
+      await videoEnded(transitionVideo);
+      freezeFrame();
+      bgVideo = null;
+
+      await maskReveal;
+      await wait(450);
+
+      transitionVideo.removeAttribute('src');
+      transitionVideo.load();
+      busy = false;
+    } catch (error) {
+      if (bgVideo) freezeFrame();
+      bgVideo = null;
+      transitionActive = false;
+      expansion = 0;
+      maskScale = 1;
+      canvasOpacity = 1;
+      experience.classList.remove('is-loading', 'is-transitioning', 'is-committing');
+      render();
+      if (!experience.classList.contains('mask-revealing')) experience.classList.add('mask-revealing');
+      if (!experience.classList.contains('content-revealing')) revealPlanetContent();
+      busy = false;
+    }
+  }
+
+  /* ---------- Intro ---------- */
+
+  async function startExperience() {
+    try {
+      await mediaReady(currentPortalMedia());
+      await revealMask();
+    } finally {
+      maskScale = 1;
+      introDone = true;
+      document.body.classList.add('intro-ready');
+      setTimeout(revealPlanetContent, 850);
+    }
+  }
+
+  function runPreloader() {
+    let finished = false;
+
+    const tick = () => {
+      if (finished) return;
+      const { currentTime, duration } = preloaderVideo;
+      if (duration > 0 && Number.isFinite(duration)) {
+        const value = String(Math.min(100, Math.round(currentTime / duration * 100)));
+        if (preloaderValue.textContent !== value) preloaderValue.textContent = value;
+      }
+      requestAnimationFrame(tick);
+    };
+
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      preloaderValue.textContent = '100';
+      preloaderCount.classList.add('is-leaving');
+      logo.classList.add('is-docked');
+      preloader.classList.add('is-background');
+      document.body.classList.add('preload-complete');
+      startExperience();
+      setTimeout(() => preloaderCount.remove(), 750);
+      setTimeout(() => logo.classList.add('is-settled'), 2000);
+    };
+
+    const start = () => {
+      const { duration } = preloaderVideo;
+      if (duration > 0 && Number.isFinite(duration)) {
+        preloaderVideo.playbackRate = Math.min(16, Math.max(.25, duration / 3));
+      }
+      const attempt = preloaderVideo.play();
+      if (attempt) attempt.catch(finish);
+      requestAnimationFrame(tick);
+    };
+
+    preloaderVideo.addEventListener('ended', finish, { once: true });
+    preloaderVideo.addEventListener('error', finish, { once: true });
+    if (preloaderVideo.error) finish();
+    else if (preloaderVideo.readyState >= 1) start();
+    else preloaderVideo.addEventListener('loadedmetadata', start, { once: true });
+  }
+
+  /* ---------- Pointer: tilt + cursor ---------- */
+
+  const pointer = { x: innerWidth / 2, y: innerHeight / 2 };
+  const cursorPos = { x: pointer.x, y: pointer.y };
+  let cursorShown = false;
+
+  window.addEventListener('pointermove', (event) => {
+    if (event.pointerType === 'touch') return;
+    pointer.x = event.clientX;
+    pointer.y = event.clientY;
+    if (!cursorShown) {
+      cursorShown = true;
+      cursorPos.x = pointer.x;
+      cursorPos.y = pointer.y;
+      cursor.classList.add('is-visible');
+    }
+    if (busy) return;
+    targetY = (event.clientX / innerWidth - .5) * 37.4;
+    targetX = (event.clientY / innerHeight - .5) * -33;
+  }, { passive: true });
+
+  document.documentElement.addEventListener('pointerleave', () => {
+    targetX = 0;
+    targetY = 0;
+  });
+
+  document.addEventListener('mouseleave', () => {
+    cursorShown = false;
+    cursor.classList.remove('is-visible');
+  });
+
+  portal.addEventListener('pointerenter', () => {
+    if (!busy) cursor.classList.add('is-enter');
+  });
+  portal.addEventListener('pointerleave', () => cursor.classList.remove('is-enter'));
+  portal.addEventListener('click', () => travel());
+
+  /* ---------- Navigation: nav pills, chapter index ---------- */
+
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
+      travel(Number(link.dataset.go));
+    });
+  });
+
+  indexList.replaceChildren(...chapters.map((chapter, i) => {
+    const item = document.createElement('li');
+    const row = document.createElement('button');
+    row.type = 'button';
+    row.className = 'index-row';
+    row.style.setProperty('--i', i);
+    const num = document.createElement('span');
+    num.className = 'index-num';
+    num.textContent = chapter.number;
+    const name = document.createElement('span');
+    name.className = 'index-title';
+    name.textContent = chapter.title;
+    const label = document.createElement('span');
+    label.className = 'index-label';
+    label.textContent = chapter.label;
+    const thesis = document.createElement('span');
+    thesis.className = 'index-thesis';
+    thesis.textContent = chapter.facts[0][1];
+    row.append(num, name, label, thesis);
+    row.addEventListener('click', () => {
+      setIndex(false);
+      travel(i);
+    });
+    item.append(row);
+    return item;
+  }));
+
+  function setIndex(open, restoreFocus = false) {
+    indexOpen = open;
+    indexOverlay.hidden = !open;
+    experience.classList.toggle('index-open', open);
+    menuButton.textContent = open ? 'Cerrar' : 'Menú';
+    menuButton.setAttribute('aria-expanded', String(open));
+    if (open) {
+      (indexList.querySelector('.index-row.is-current') || indexList.querySelector('.index-row')).focus({ preventScroll: true });
+    } else if (restoreFocus) {
+      menuButton.focus({ preventScroll: true });
+    }
+  }
+
+  menuButton.addEventListener('click', () => setIndex(!indexOpen, true));
+  indexOverlay.addEventListener('click', (event) => {
+    if (event.target === indexOverlay) setIndex(false, true);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && indexOpen) setIndex(false, true);
+  });
+
+  function cursorLoop() {
+    cursorPos.x += (pointer.x - cursorPos.x) * .2;
+    cursorPos.y += (pointer.y - cursorPos.y) * .2;
+    cursor.style.transform = `translate3d(${cursorPos.x}px,${cursorPos.y}px,0)`;
+    requestAnimationFrame(cursorLoop);
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fitTitle).catch(() => {});
+
+  /* ---------- Boot ---------- */
+
+  backgrounds.forEach((video) => { video.pause(); video.currentTime = 0; });
+  resizeCanvas();
+  render();
+  requestAnimationFrame(draw);
+  requestAnimationFrame(cursorLoop);
+  runPreloader();
+})();
+</script>
+</body>
+</html>
